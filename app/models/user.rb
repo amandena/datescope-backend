@@ -61,7 +61,7 @@ class User < ApplicationRecord
     if self.pisces && user.pisces
       self.matches.push(user)
     end
-    self.matches
+    self.matches.uniq
   end
 
   def aries
