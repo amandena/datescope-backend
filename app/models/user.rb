@@ -5,14 +5,14 @@ class User < ApplicationRecord
   has_many :matches
 
   validates :email, uniqueness: true
-  validates :email, :name, :age, :sign, :bio, :gender, :preference, :location, :social_media, presence: true
+  validates :email, :name, :age, :sign, :bio, :gender, :preference, :location, :instagram, presence: true
   validates_inclusion_of :gender, :in => ['male', 'female']
   validates_inclusion_of :preference, :in => ['male', 'female', 'both']
   validates_inclusion_of :sign, :in => ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces']
 
   def find_matches
     User.all.map do |user|
-      if self !== user
+      if self != user
         if self.location === user.location
           if self.preference === 'both'
             if self.preference === user.gender

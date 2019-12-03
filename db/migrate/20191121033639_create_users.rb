@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :gender
       t.string :preference
       t.string :location
-      t.string :social_media
+      t.string :instagram
 
       t.timestamps
     end
