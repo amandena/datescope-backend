@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: {error: 'Error creating user. Please try again.'}
+      render json: {error: 'Well, that was weird. Please try again.'}
     end
   end
 
@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.update(user_params)
       render json: @user
     else
-      render json: {error: 'Error updating info. Please try again.'}
+      render json: {error: 'Lying about your age, again? Please try once more.'}
     end
   end
 
