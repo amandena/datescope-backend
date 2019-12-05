@@ -10,58 +10,40 @@ class User < ApplicationRecord
   validates_inclusion_of :preference, :in => ['male', 'female', 'both']
   validates_inclusion_of :sign, :in => ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces']
 
-  def find_matches
+  def compatibility
     User.all.map do |user|
       if self != user
         if self.location === user.location
-          if self.preference === 'both'
-            if self.preference === user.gender
-              self.sign_compatibility(user)
+          if self.preference === 'both' || self.preference === user.gender
+            if self.aries && user.sign === 'aries'
+              user
+            elsif self.taurus && user.sign === 'taurus'
+              user
+            elsif self.gemini && user.sign === 'gemini'
+              user
+            elsif self.cancer && user.sign === 'cancer'
+              user
+            elsif self.leo && user.sign === 'leo'
+              user
+            elsif self.virgo && user.sign === 'virgo'
+              user
+            elsif self.libra && user.sign === 'libra'
+              user
+            elsif self.scorpio && user.sign === 'scorpio'
+              user
+            elsif self.sagittarius && user.sign === 'sagittarius'
+              user
+            elsif self.capricorn && user.sign === 'capricorn'
+              user
+            elsif self.aquarius && user.sign === 'aquarius'
+              user
+            elsif self.pisces && user.sign === 'pisces'
+              user
             end
           end
         end
       end
-    end
-  end
-
-  def sign_compatibility(user)
-    if self.aries && user.aries
-      self.matches.push(user)
-    end
-    if self.taurus && user.taurus
-      self.matches.push(user)
-    end
-    if self.gemini && user.gemini
-      self.matches.push(user)
-    end
-    if self.cancer && user.cancer
-      self.matches.push(user)
-    end
-    if self.leo && user.leo
-      self.matches.push(user)
-    end
-    if self.virgo && user.virgo
-      self.matches.push(user)
-    end
-    if self.libra && user.libra
-      self.matches.push(user)
-    end
-    if self.scorpio && user.scorpio
-      self.matches.push(user)
-    end
-    if self.sagittarius && user.sagittarius
-      self.matches.push(user)
-    end
-    if self.capricorn && user.capricorn
-      self.matches.push(user)
-    end
-    if self.aquarius && user.aquarius
-      self.matches.push(user)
-    end
-    if self.pisces && user.pisces
-      self.matches.push(user)
-    end
-    self.matches.uniq
+    end.compact
   end
 
   def aries
