@@ -2,7 +2,7 @@ class Api::V1::MessagesController < ApplicationController
   before_action :find_message, only: [:index, :show, :destroy]
 
   def index
-    @messages = @message.compatibility
+    @messages = @Message.all
     render json: @messages
   end
 
