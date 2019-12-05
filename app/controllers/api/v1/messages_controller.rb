@@ -1,8 +1,9 @@
 class Api::V1::MessagesController < ApplicationController
   before_action :find_message, only: [:index, :show, :destroy]
+  before_action :find_user
 
   def index
-    @messages = @Message.all
+    @messages = @user.messages
     render json: @messages
   end
 
@@ -11,7 +12,7 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = @user.messages.new(message_params)
     if @message.save
       render json: @message
     else
@@ -31,5 +32,9 @@ class Api::V1::MessagesController < ApplicationController
 
   def find_message
     @message = Message.find(params[:id])
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end

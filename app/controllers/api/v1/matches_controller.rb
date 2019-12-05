@@ -1,8 +1,9 @@
 class Api::V1::MatchesController < ApplicationController
   before_action :find_match, only: [:index, :show, :destroy]
+  before_action :find_user
 
   def index
-    @matches = @Match.all
+    @matches = @user.matches
     render json: @matches
   end
 
@@ -11,7 +12,7 @@ class Api::V1::MatchesController < ApplicationController
   end
 
   def create
-    @match = Message.new(match_params)
+    @match = @user.matches.new(match_params)
     if @match.save
       render json: @match
     else
@@ -31,5 +32,9 @@ class Api::V1::MatchesController < ApplicationController
 
   def find_match
     @match = Match.find(params[:id])
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end
