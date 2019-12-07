@@ -2,7 +2,11 @@ class Api::V1::UsersController < ApplicationController
   before_action :find_user, only: [:index, :show, :update, :destroy]
 
   def index
-    @users = @user.compatibility
+    if @user
+      @users = @user.compatibility
+    else
+      @users = User.all
+    end
     render json: @users
   end
 
