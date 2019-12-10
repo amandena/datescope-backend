@@ -1,9 +1,10 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :find_user, only: [:index, :show, :update, :destroy]
+  before_action :find_user, only: [:show, :update, :destroy]
 
   def index
     if @user
       @users = @user.compatibility
+      # @users = User.all
     else
       @users = User.all
     end
