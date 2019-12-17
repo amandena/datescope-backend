@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   validates :email, :name, :age, :sign, :bio, :gender, :preference, :location, :instagram, presence: true
+  validates :age, numericality: {only_integer: true}
+  validates: :age, numericality: {greater_than: 17}
   validates_inclusion_of :gender, :in => ['male', 'female']
   validates_inclusion_of :preference, :in => ['male', 'female', 'both']
   validates_inclusion_of :sign, :in => ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces']
