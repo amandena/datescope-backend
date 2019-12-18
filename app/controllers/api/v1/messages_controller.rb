@@ -22,6 +22,7 @@ class Api::V1::MessagesController < ApplicationController
 
   def destroy
     @message.destroy
+    render json: @user
   end
 
   private
