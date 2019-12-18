@@ -14,7 +14,7 @@ class Api::V1::MessagesController < ApplicationController
   def create
     @message = @user.messages.new(message_params)
     if @message.save
-      render json: @message
+      render json: @user
     else
       render json: {error: 'Was it something you said? Please try again.'}
     end
