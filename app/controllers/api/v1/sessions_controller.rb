@@ -18,5 +18,8 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def destroy
+    session.clear
+    render json: {notice: 'Come back soon!'},
+      status: :ok
   end
 end
