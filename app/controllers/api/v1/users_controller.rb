@@ -4,7 +4,6 @@ class Api::V1::UsersController < ApplicationController
   def index
     if @user
       @users = @user.compatibility
-      # @users = User.all
     else
       @users = User.all
     end
