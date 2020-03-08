@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post '/signup', to: 'users#create'
       post '/login', to: 'sessions#create'
       get '/get_current_user', to: 'sessions#get_current_user'
+      get '/users/:id/messenger', to: 'messages#messenger'
       delete '/logout', to: 'sessions#destroy'
       resources :users do
         resources :matches

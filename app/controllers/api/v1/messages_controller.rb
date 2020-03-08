@@ -11,6 +11,11 @@ class Api::V1::MessagesController < ApplicationController
     render json: @message
   end
 
+  def messenger
+    @messages = @user.messages
+    render json: @messages
+  end
+
   def create
     @message = @user.messages.new(message_params)
     if @message.save
