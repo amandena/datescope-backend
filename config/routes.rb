@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post '/login', to: 'sessions#create'
       get '/get_current_user', to: 'sessions#get_current_user'
       get '/users/:id/messenger', to: 'messages#messenger'
+      get '/users/:id/matches', to: 'users#matches'
       delete '/logout', to: 'sessions#destroy'
       resources :users do
         resources :matches
