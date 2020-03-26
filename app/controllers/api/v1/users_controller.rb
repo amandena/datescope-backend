@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :find_user, only: [:matches, :show, :update, :destroy]
+  before_action :find_user, only: [:matches, :matches_show, :show, :update, :destroy]
 
   def index
     @users = User.all
@@ -9,6 +9,10 @@ class Api::V1::UsersController < ApplicationController
   def matches
     @users = @user.compatibility
     render json: @users
+  end
+
+  def matches_show
+    render json: @user
   end
 
   def show
