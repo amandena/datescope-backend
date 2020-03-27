@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :messages
-  has_many :matches
 
   validates :email, uniqueness: true
   validates :email, :name, :age, :sign, :bio, :gender, :preference, :location, :instagram, presence: true

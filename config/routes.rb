@@ -9,7 +9,6 @@ Rails.application.routes.draw do
       get '/users/:id/matches/:id', to: 'users#matches_show'
       delete '/logout', to: 'sessions#destroy'
       resources :users do
-        resources :matches
         resources :messages
       end
     end

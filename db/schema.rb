@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_11_21_034101) do
 
-  create_table "matches", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string "comment"
     t.integer "user_id"
