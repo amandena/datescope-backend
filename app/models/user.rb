@@ -63,7 +63,7 @@ class User < ApplicationRecord
   end
 
   def gemini
-    if self.sign === 'libra' || self.sign === 'aries' || self.sign === 'sagittarius'
+    if self.sign === 'libra' || self.sign === 'aries' || self.sign === 'aquarius'
       true
     else
       false
@@ -71,7 +71,7 @@ class User < ApplicationRecord
   end
 
   def cancer
-    if self.sign === 'scorpio' || self.sign === 'taurus' || self.sign === 'capricorn'
+    if self.sign === 'scorpio' || self.sign === 'taurus' || self.sign === 'virgo'
       true
     else
       false
@@ -103,7 +103,7 @@ class User < ApplicationRecord
   end
 
   def scorpio
-    if self.sign === 'cancer' || self.sign === 'virgo' || self.sign === 'taurus'
+    if self.sign === 'cancer' || self.sign === 'pisces' || self.sign === 'taurus'
       true
     else
       false
@@ -111,7 +111,7 @@ class User < ApplicationRecord
   end
 
   def sagittarius
-    if self.sign === 'leo' || self.sign === 'virgo' || self.sign === 'gemini'
+    if self.sign === 'aquarius' || self.sign === 'virgo' || self.sign === 'gemini'
       true
     else
       false
